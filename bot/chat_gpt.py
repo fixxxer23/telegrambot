@@ -82,7 +82,7 @@ class ChatGPT:
                 )
                 return response_stream
             except Exception as e:
-                text = f'model not available ```{e}```'
+                text = f'model {model} not available ```{e}```'
                 if "rate limit" in text.lower():
                     retries += 1
                     if retries >= 3:
