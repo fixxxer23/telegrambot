@@ -34,7 +34,7 @@ class ChatGPT:
             response = requests.get(self.fetch_models_url, headers=self.headers)
         except Exception:
             return self.models.append(self.default_model)
-        if response.status_code == 200:
+        if response.status_code != 200:
             models_data = response.json()
             for model in models_data.get('data'):
                 if "chat" in model['endpoints'][0]:
